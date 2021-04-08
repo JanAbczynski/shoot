@@ -21,6 +21,7 @@ speed-measure-plugin.json
 .settings/
 *.sublime-workspace
 
+BackEnd/shoot/.vs
 FrontEnd/node_modules/
 
 # IDE - VSCode
