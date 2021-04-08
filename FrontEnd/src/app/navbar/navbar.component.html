@@ -1,0 +1,23 @@
+
+<nav>
+
+<div>
+  <ul>
+    <!-- <li *ngIf="loginService.currentUser === 'user'" routerLinkActive="active"><a routerLink="/followers"
+      [queryParams]="{ page: 1, order: 'newest'}">Followers</a></li>
+    <li routerLinkActive="active"><a routerLink="/posts">Posts</a></li> -->
+    <a *ngIf="!isLogged()" routerLink="/login"><button class="btn btn-success" > login</button></a>
+    <a *ngIf="!isLogged()" routerLink="/register"><button class="btn btn-success" > register</button></a>
+    <!-- <button (click)="loginService.update()" class="btn btn-success">update</button> -->
+    <button *ngIf="isLogged()" (click)="logout()" class="btn btn-success">logout</button>
+    <a *ngIf="isLogged()" routerLink="/userDetail"><button class="btn btn-success" > User detail</button></a>
+    <a *ngIf="isLogged() && isCompany"  routerLink="/userWork"><button class="btn btn-success" > Competition manager</button></a>
+
+    <!-- <a *ngIf="loginService.isLogged() && loginService.isCompany" routerLink="/userWork"><button class="btn btn-success" > Competition manager</button></a> -->
+    <a *ngIf="isLogged() && !isCompany" routerLink="/userPanel"><button class="btn btn-success" > search competition</button></a>
+
+    <!-- <button class="btn btn-success">testAuth()</button> -->
+  </ul>
+</div>
+
+</nav>

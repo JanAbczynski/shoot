@@ -1,0 +1,22 @@
+<p>register works!</p>
+<form [formGroup]="loginForm" (ngSubmit) = "onSubmit()">
+
+  <label>UserLogin<input type = "text" formControlName="UserLogin"></label><br>
+  <label>UserPass<input type = "text" formControlName="UserPass"></label><br>
+  <label>UserPass2<input type = "text" formControlName="UserPass2"></label><br>
+  <label>UserName<input type = "text" formControlName="UserName"></label><br>
+  <label>UserSureName<input type = "text" formControlName="UserSureName"></label><br>
+  <label>UserTaxNumber<input type = "text" formControlName="UserTaxNumber"></label><br>
+  <label>UserAddress<input type = "text" formControlName="UserAddress"></label><br>
+  <label>UserCity<input type = "text" formControlName="UserCity"></label><br>
+  <label>UserZipCode<input type = "text" formControlName="UserZipCode"></label><br>
+  <label>UserMail<input type = "text" formControlName="UserMail"></label><br>
+  <label>UserPhoneNumber<input type = "text" formControlName="UserPhoneNumber"></label><br>
+  <label>UserPhoneNumber2<input type = "text" formControlName="UserPhoneNumber2"></label><br>
+  <label>UserZipCode<input type = "text" formControlName="UserZipCode"></label><br>
+  <label>UserRole<input type = "text" formControlName="UserRole"></label><br>
+  <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+</form>
+<div *ngIf="errorMessage" class="alert alert-danger" style="color:red">
+  {{errorMessage}}
+</div>

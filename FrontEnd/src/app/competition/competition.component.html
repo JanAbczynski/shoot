@@ -1,0 +1,32 @@
+<table border="1" *ngIf = "generateTable">
+  <tr>
+    <th>
+      Description
+    </th>
+    <th>
+      Target
+    </th>
+    <th>
+      No. of shots
+    </th>
+    <th>
+      Sign in
+    </th>
+  </tr>
+<tr *ngFor="let run of runs">
+  <td>
+    {{run.description}}
+  </td>
+  <td>
+    <img src="assets/graph/targets/{{run.target}}.jpg" alt="{{run.target}}" width="100" height="100">
+  </td>
+  <td>
+    {{run.noOfShots}}
+  </td>
+
+  <td>
+    <button class="btn btn-success" (click)="SignIn(run.id!)">sign in</button>
+    <label *ngIf="run.id==buttonId" class="alert alert-danger">You are allredy in</label>
+  </td>
+</tr>
+</table>

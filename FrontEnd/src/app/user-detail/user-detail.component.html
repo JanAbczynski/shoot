@@ -1,0 +1,120 @@
+<div *ngIf="displayData">
+
+  <button (click)="RunEditUserData()">Edit user data</button>
+
+
+  <form [formGroup]="userDataForm" (ngSubmit)="onSubmit()">
+
+    <label>
+  <table style="width:100%">
+
+      <tr>
+        <td>
+          userName
+        </td>
+        <td>
+          <span *ngIf="!editUserDate">{{user.userName}}</span>
+          <input *ngIf="editUserDate" [readonly]=true type="text" formControlName="userName"> <br>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+      userSureName:
+    </td>
+    <td>
+      <span *ngIf="!editUserDate">{{user.userSureName}}</span>
+      <input *ngIf="editUserDate" [readonly]="isReady" type="text" formControlName="userSureName" value="asd"> <br>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      userAddress:
+    </td>
+    <td>
+      <span *ngIf="!editUserDate">{{user.userAddress}}</span>
+      <input *ngIf="editUserDate" [readonly]="isReady" type="text" formControlName="userAddress"> <br>
+    </td>
+  </tr>
+
+      <tr>
+        <td>
+      userCity:
+    </td>
+    <td>
+      <span *ngIf="!editUserDate">{{user.userCity}}</span>
+      <input *ngIf="editUserDate" [readonly]="isReady" type="text" formControlName="userCity"> <br>
+    </td>
+  </tr>
+
+      <tr>
+        <td>
+      userZipCode:
+    </td>
+    <td>
+      <span *ngIf="!editUserDate">{{user.userZipCode}}</span>
+      <input *ngIf="editUserDate" [readonly]="isReady" type="text" formControlName="userZipCode"> <br>
+    </td>
+  </tr>
+
+      <tr>
+        <td>
+      userMail:
+    </td>
+    <td>
+      <span *ngIf="!editUserDate">{{user.userMail}}</span>
+      <input *ngIf="editUserDate" [readonly]="isReady" type="text" formControlName="userMail"> <br>
+    </td>
+  </tr>
+
+      <tr>
+        <td>
+      userPhoneNumber:
+    </td>
+    <td>
+      <span *ngIf="!editUserDate">{{user.userPhoneNumber}}</span>
+      <input *ngIf="editUserDate" [readonly]="isReady" type="text" formControlName="userPhoneNumber"> <br>
+    </td>
+  </tr>
+
+      <tr>
+        <td>
+      userPhoneNumber2:
+    </td>
+    <td>
+      <span *ngIf="!editUserDate">{{user.userPhoneNumber2}}</span>
+      <input *ngIf="editUserDate" [readonly]="isReady" type="text" formControlName="userPhoneNumber2"> <br>
+    </td>
+  </tr>
+
+</table>
+    </label>
+    <button type="submit" [disabled]="!passForm.valid">send new data</button>
+
+  </form>
+
+
+  <button *ngIf="!showChangePassForm" (click)="runChangePasswordForm()">Change password</button>
+
+  <div style="color:green;" *ngIf="passwordWasChanged">
+    Password was changed
+  </div>
+
+
+  <div *ngIf="showChangePassForm">
+    <form [formGroup]="passForm" (ngSubmit)="onSubmitPassChange()">
+
+      <label>
+        old password:
+        <input [readonly]="isReady" type="text" formControlName="oldPass"> <span *ngIf="wrongPassMessage" style="color:red;">Your password is wrong</span> <br>
+        pass1:
+        <input [readonly]="isReady" type="text" formControlName="pass1"> <br>
+        pass2:
+        <input [readonly]="isReady" type="text" formControlName="pass2"> <br>
+      </label>
+      <button type="submit" [disabled]="!passForm.valid">Change password</button>
+
+    </form>
+   </div>
+</div>

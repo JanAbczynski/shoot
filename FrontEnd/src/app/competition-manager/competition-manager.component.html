@@ -1,0 +1,29 @@
+
+
+<div mat-raised-button *ngFor="let run of runs">
+  <a routerLink="/runManager/{{run.id}}">{{run.description}} </a>{{run.noOfShots}}
+  <button mat-raised-button (click)="dialogOpen('aaa')" >delete</button>
+ </div>
+
+<div>
+ <button *ngIf="!isCreatingRun"  class="btn btn-success" (click)="ActivateRunForm()">Create run</button>
+  <div *ngIf="isCreatingRun">
+    <p>  RUN CREATOR:</p>
+  </div>
+
+</div>
+
+<div *ngIf="isCreatingRun">
+  <form [formGroup]="createRun" novalidate (ngSubmit)="onSubmitRun()">
+    <label>description <input type="text" formControlName="description"></label><br>
+    <label>noOfShots <input type="text" formControlName="noOfShots"></label><br>
+    <label>target <input type="text" formControlName="target"readonly style="background-color: #e5e5e5"></label> <br>
+<div *ngFor="let x of targets">
+  <input #target2 id="{{x.id}}" type="radio" name="targetControl" >   {{x.targetName}}<br>
+  <img src="assets/graph/targets/{{x.id}}.jpg" alt="{{x.targetName}}" width="100" height="100" (click)="SelectTarget(x.id!)">
+
+</div>
+<button type="submit">Create</button><button (click)="ActivateRunForm()">Cancel</button>
+</form><br>
+
+</div>

@@ -1,0 +1,39 @@
+
+<table border="1">
+  <tr>
+    <th>
+      <a (click)="SortBy('description')">description</a>
+    </th>
+    <th>
+      <a (click)="SortBy('day')">day</a>
+    </th>
+    <th>
+      <a (click)="SortBy('hour')">hour</a>
+    </th>
+    <th>
+      <a (click)="SortBy('location')">Location</a>
+    </th>
+  </tr>
+
+  <tr *ngFor="let comp of competitions">
+    <td>
+      <a routerLink="/competition/{{comp.id}}">{{comp.description}}</a>
+      <!-- <a routerLink="/competition/">{{comp.description}}{{comp.id}}</a> -->
+
+    </td>
+    <td>
+       {{comp.startTime | date:'dd.MM.yyyy'}}
+    </td>
+    <td>
+      {{comp.startTime | date:'HH : mm'}}
+    </td>
+    <td>
+      {{comp.placeOf}}
+    </td>
+  </tr>
+
+
+
+</table>
+
+

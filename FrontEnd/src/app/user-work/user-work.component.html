@@ -1,0 +1,26 @@
+<p>
+  <button *ngIf="!isCreatingCompetition" (click)="ActivateCreator()" class="btn btn-success">create new competition</button>
+  <button *ngIf="isCreatingCompetition" (click)="ActivateCreator()" class="btn btn-success">Cancel</button>
+</p>
+
+<div *ngIf="isCreatingCompetition">
+    <form [formGroup]="createCompetition" novalidate (ngSubmit)="onSubmit()">
+
+    <label>description <input type="text" formControlName="description"></label><br>
+    <label>startTime <input type="text" formControlName="startTime" type="date"></label><br>
+    <label>dur <input type="text" formControlName="dur" type="date"></label><br>
+    <label>placeOf <input type="text" formControlName="placeOf"></label><br>
+
+
+    <button type="submit">Create</button>
+  </form><br>
+</div>
+
+<div>
+  <button class="btn btn-success">Show all</button>
+  <div *ngFor="let comp of competitions">
+    <a routerLink="/CompetitionManager/{{comp.id}}">{{comp.description}}</a>
+ {{comp.startTime | date:'dd.MM.yyyy'}} {{comp.startTime | date:'HH : mm'}} {{comp.placeOf}}
+  </div>
+
+</div>
